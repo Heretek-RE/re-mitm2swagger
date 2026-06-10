@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "re-mitm2swagger"
+version = "0.1.0"
+description = "MCP server exposing mitmproxy + mitmproxy2swagger for REST API reverse-engineering from HTTP captures."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+keywords = ["mcp", "mitmproxy", "openapi", "swagger", "api-reverse", "har"]
+authors = [{name = "John"}]
+dependencies = [
+    "mcp[cli]>=1.2",
+    "mitmproxy>=10",
+    "mitmproxy2swagger>=0.14",
+    "pydantic>=2.6",
+]
+
+[project.scripts]
+re-mitm2swagger = "re_mitm2swagger.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
